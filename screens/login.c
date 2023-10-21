@@ -12,13 +12,12 @@ pessoa p[1]; // Reduzindo o nome da string para "p" e o "[[1]" é o máximo de p
 
 int login()
 {
-
     system("clear"); // Limpa a tela
 
     // Cabeçalho para visualização
     printf("\n\n••••••••••••• Login •••••••••••••\n\n");
 
-    // Criar um laço de repetição para executar enquanto o usuario for incorreto.
+    // TODO: Criar um laço de repetição para executar enquanto o usuario for incorreto.
 
     char login[40];
     char senha[40];

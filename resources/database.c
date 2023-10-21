@@ -19,7 +19,7 @@ FILE *fpt;
 char *write_csv(char table[], char text[]);
 char *read_csv(char table[], char search[]);
 
-// Escreve os dados no arquivo .csv
+// Escreve os dados no arquivo `.csv`
 char *write_csv(char table[], char text[])
 {
     if (!strcmp(table, "u"))
@@ -47,7 +47,7 @@ char *write_csv(char table[], char text[])
     return "0";
 }
 
-// Lê os dados do arquivo .csv
+// Lê os dados do arquivo `.csv`
 char *read_csv(char table[], char search[])
 {
     if (!strcmp(table, "u"))
@@ -67,7 +67,7 @@ char *read_csv(char table[], char search[])
     char line[MAX_LINE_LENGTH];
     struct CSVRow data;
 
-    // Pula a primeira linha - cabecalho
+    // Pula a primeira linha
     if (fgets(line, sizeof(line), fpt) == NULL)
     {
         perror("Error reading CSV header");
@@ -75,18 +75,15 @@ char *read_csv(char table[], char search[])
     }
 
     // TODO: Implementar algoritimo para busca binária
-    // Lê todas as linhas do arquivo - um laco de repeticao
+    // Le as linhas do arquivo
     while (fgets(line, sizeof(line), fpt) != NULL)
     {
-        if (sscanf(line, "%d;%99[^;\n];%d;%d;", &data.id, data.name, &data.tema,
-                   &data.pontuacao) == 4)
+        if (sscanf(line, "%d;%99[^;\n];%d;%d;", &data.id, data.name, &data.tema, &data.pontuacao) == 4)
         {
-
-            // Compara se o id da linha eh igual o informado
+            // Compara se o ID da linha atual é igual o do parametro
             if (data.id == atoi(search))
             {
-                printf("ID: %d\nName: %s\nTema: %i\nPontuacao: %i\n", data.id,
-                       data.name, data.tema, data.pontuacao);
+                printf("ID: %d\nName: %s\nTema: %i\nPontuacao: %i\n", data.id, data.name, data.tema, data.pontuacao);
             }
         }
         else

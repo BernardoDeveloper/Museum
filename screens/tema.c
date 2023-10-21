@@ -9,7 +9,6 @@ int tema()
 
     printf("📑 TEMA - Página não criada ⚠️\n");
 
-    write_csv("u", "2;Matheus celta;3;2;");
     read_csv("u", "1");
 
     return 0;
