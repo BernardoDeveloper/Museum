@@ -83,7 +83,7 @@ char *read_csv(char table[], char search[])
             // Compara se o ID da linha atual é igual o do parametro
             if (data.id == atoi(search))
             {
-                printf("ID: %d\nName: %s\nTema: %i\nPontuacao: %i\n", data.id, data.name, data.tema, data.pontuacao);
+                printf("%i;%s;%s;%i", data.id, data.name, data.tema, data.pontuacao);
             }
         }
         else
