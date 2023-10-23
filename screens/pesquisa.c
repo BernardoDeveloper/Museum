@@ -1,5 +1,5 @@
 #include "../headers/pesquisa.h"
-#include "../headers/tema.h"
+#include "../headers/database.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

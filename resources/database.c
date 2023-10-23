@@ -6,21 +6,19 @@
 
 #define MAX_LINE_LENGTH 1024
 
-printf("abriu arquivo de database");
-
 struct CSVRow
 {
     int id;
-    char *titulo;
-    char *texto;
+    char titulo[100];
+    char texto[100];
     int nota;
 };
 
 // Ponteiro para referenciar o local do arquivo
 FILE *fpt;
 
-// char *write_csv(char table[], char text[]);
-// char *read_csv(char table[], char search[]);
+char *write_csv(char table[], char text[]);
+char *read_csv(char table[], char search[]);
 
 // Escreve os dados no arquivo `.csv`
 char *write_csv(char table[], char text[])
@@ -53,7 +51,6 @@ char *write_csv(char table[], char text[])
 // Lê os dados do arquivo `.csv`
 char *read_csv(char table[], char search[])
 {
-    printf("Chegou aqui");
     if (!strcmp(table, "u"))
     {
         fpt = fopen("database/usuarios.csv", "r");
@@ -61,9 +58,7 @@ char *read_csv(char table[], char search[])
     }
     else if (!strcmp(table, "t"))
     {
-        printf("Chegou aqui Antes");
         fpt = fopen("database/temas.csv", "r");
-        printf("Chegou aqui - tema");
     }
     else
     {
@@ -90,6 +85,10 @@ char *read_csv(char table[], char search[])
             // Compara se o ID da linha atual é igual o do parametro
             if (data.id == atoi(search))
             {
+                // TODO: fix the return of the function
+                /* char function_return[2048];
+                snprintf(function_return, sizeof(function_return), "%i;%s;%s;%i", data.id, data.titulo, data.texto, data.nota);
+                return function_return; */
                 printf("%i;%s;%s;%i", data.id, data.titulo, data.texto, data.nota);
             }
         }
