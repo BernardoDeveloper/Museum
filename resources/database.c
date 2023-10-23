@@ -1,9 +1,12 @@
 #include "../headers/database.h"
+#include "./struct.c"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 #define MAX_LINE_LENGTH 1024
+
+printf("abriu arquivo de database");
 
 struct CSVRow
 {
@@ -16,19 +19,19 @@ struct CSVRow
 // Ponteiro para referenciar o local do arquivo
 FILE *fpt;
 
-char *write_csv(char table[], char text[]);
-char *read_csv(char table[], char search[]);
+// char *write_csv(char table[], char text[]);
+// char *read_csv(char table[], char search[]);
 
 // Escreve os dados no arquivo `.csv`
 char *write_csv(char table[], char text[])
 {
     if (!strcmp(table, "u"))
     {
-        fpt = fopen("../database/usuarios.csv", "a");
+        fpt = fopen("database/usuarios.csv", "a");
     }
     else if (!strcmp(table, "t"))
     {
-        fpt = fopen("../database/temas.csv", "a");
+        fpt = fopen("database/temas.csv", "a");
     }
     else
     {
@@ -53,13 +56,13 @@ char *read_csv(char table[], char search[])
     printf("Chegou aqui");
     if (!strcmp(table, "u"))
     {
-        fpt = fopen("../database/usuarios.csv", "r");
+        fpt = fopen("database/usuarios.csv", "r");
         printf("Chegou aqui - usuário");
     }
     else if (!strcmp(table, "t"))
     {
         printf("Chegou aqui Antes");
-        fpt = fopen("../database/temas.csv", "r");
+        fpt = fopen("database/temas.csv", "r");
         printf("Chegou aqui - tema");
     }
     else
