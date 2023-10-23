@@ -64,5 +64,7 @@ int pesquisa()
     // Escrever no arquivo os dados que ele inseriu
     write_csv("u", dados);
 
+    // TODO: Perguntar se o usuário quer fechar o programa ou voltar a tela inicial
+
     return 0;
 }

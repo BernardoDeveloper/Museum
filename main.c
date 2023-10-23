@@ -6,6 +6,8 @@
 
 int main(void)
 {
+    system("clear");
+    
     do
     {
         printf("\n\n••••••••••••• Gerenciamento de Museu •••••••••••••\n\n");

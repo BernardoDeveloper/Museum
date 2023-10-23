@@ -8,9 +8,9 @@
 struct CSVRow
 {
     int id;
-    char *name;
-    int tema;
-    int pontuacao;
+    char *titulo;
+    char *texto;
+    int nota;
 };
 
 // Ponteiro para referenciar o local do arquivo
@@ -24,11 +24,11 @@ char *write_csv(char table[], char text[])
 {
     if (!strcmp(table, "u"))
     {
-        fpt = fopen("database/usuarios.csv", "a");
+        fpt = fopen("../database/usuarios.csv", "a");
     }
     else if (!strcmp(table, "t"))
     {
-        fpt = fopen("database/temas.csv", "a");
+        fpt = fopen("../database/temas.csv", "a");
     }
     else
     {
@@ -50,13 +50,17 @@ char *write_csv(char table[], char text[])
 // Lê os dados do arquivo `.csv`
 char *read_csv(char table[], char search[])
 {
+    printf("Chegou aqui");
     if (!strcmp(table, "u"))
     {
-        fpt = fopen("database/usuarios.csv", "r");
+        fpt = fopen("../database/usuarios.csv", "r");
+        printf("Chegou aqui - usuário");
     }
     else if (!strcmp(table, "t"))
     {
-        fpt = fopen("database/temas.csv", "r");
+        printf("Chegou aqui Antes");
+        fpt = fopen("../database/temas.csv", "r");
+        printf("Chegou aqui - tema");
     }
     else
     {
@@ -78,12 +82,12 @@ char *read_csv(char table[], char search[])
     // Le as linhas do arquivo
     while (fgets(line, sizeof(line), fpt) != NULL)
     {
-        if (sscanf(line, "%d;%99[^;\n];%d;%d;", &data.id, data.name, &data.tema, &data.pontuacao) == 4)
+        if (sscanf(line, "%d;%99[^;];%99[^;];%d;", &data.id, data.titulo, data.texto, &data.nota) == 4)
         {
             // Compara se o ID da linha atual é igual o do parametro
             if (data.id == atoi(search))
             {
-                printf("%i;%s;%s;%i", data.id, data.name, data.tema, data.pontuacao);
+                printf("%i;%s;%s;%i", data.id, data.titulo, data.texto, data.nota);
             }
         }
         else
