@@ -9,7 +9,7 @@ struct UsuarioRow
 struct TemaRow
 {
     int id;
-    char *titulo;
-    char *text;
+    char titulo[100];
+    char texto[100];
     int nota;
 };

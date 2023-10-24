@@ -63,7 +63,7 @@ char *read_csv(char table[], char search[])
     else
     {
         printf("[ERRO]: Valor inválido passado na função");
-        return "1";
+        return NULL;
     }
 
     char line[MAX_LINE_LENGTH];
@@ -73,7 +73,7 @@ char *read_csv(char table[], char search[])
     if (fgets(line, sizeof(line), fpt) == NULL)
     {
         perror("Error reading CSV header");
-        return "1";
+        return NULL;
     }
 
     // TODO: Implementar algoritimo para busca binária
@@ -85,11 +85,9 @@ char *read_csv(char table[], char search[])
             // Compara se o ID da linha atual é igual o do parametro
             if (data.id == atoi(search))
             {
-                // TODO: fix the return of the function
-                /* char function_return[2048];
-                snprintf(function_return, sizeof(function_return), "%i;%s;%s;%i", data.id, data.titulo, data.texto, data.nota);
-                return function_return; */
-                printf("%i;%s;%s;%i", data.id, data.titulo, data.texto, data.nota);
+                static char buffer[MAX_LINE_LENGTH];
+                snprintf(buffer, sizeof(buffer), "%i;%s;%s;%i", data.id, data.titulo, data.texto, data.nota);
+                return buffer;
             }
         }
         else
@@ -99,5 +97,5 @@ char *read_csv(char table[], char search[])
     }
 
     fclose(fpt);
-    return "0";
+   return "0";
 }
