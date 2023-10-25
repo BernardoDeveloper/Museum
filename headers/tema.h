@@ -3,4 +3,9 @@
 
 int tema();
 
+int theme_screen();
+int second();
+int three();
+int four();
+
 #endif

@@ -8,37 +8,76 @@ int tema()
 {
     system("clear"); // Limpa a tela
 
-    printf("\n\n••••••••••••• Tema •••••••••••••\n\n");
+    do
+    {
+        printf("\n\n••••••••••••• Tema •••••••••••••\n\n");
 
-    printf("\tTEMA:\n");
+        printf("\tTEMA:\n");
+        
+        // Reapeat four times show the themes with base in file
+        struct TemaRow data;
+        int index;
+        for (index = 1; index <= 4; index++) {
+            // Transform int index to char value
+            int digit = snprintf(NULL, 0, "%d", index);
+            char *digitToString = (char *)malloc(index);
 
-    // TODO: split the return of variable and get the specific data of a string, and return then
-    
+            snprintf(digitToString, digit + 1, "%d", index);
 
-    struct TemaRow data;
-    int index;
-    for (index = 1; index <= 4; index++) {
-        // char* theme = read_csv("t", "1"); - If run with fixed value return OK
-        char* theme = read_csv("t", index); // If use daynamic value them return an ERROR
+            char* theme = read_csv("t", digitToString); // If use daynamic value them return an ERROR
 
-        if (theme == NULL) {
-            printf("Error: Line not found in CSV file\n");
-            return 1;
+            if (theme == NULL) {
+                printf("Error: Line not found in CSV file\n");
+                return 1;
+            }
+
+            int parsed = sscanf(theme, "%d;\"%99[^\"]\";\"%99[^\"]\";%d;", &data.id, data.titulo, data.texto, &data.nota);
+
+            if (parsed != 4) {
+                printf("Error: Failed to parse CSV line\n");
+                return 1;
+            }
+
+            printf("\n\t[ %d ] - %s", data.id, data.titulo);
         }
 
-        int parsed = sscanf(theme, "%d;\"%99[^\"]\";\"%99[^\"]\";%d;", &data.id, data.titulo, data.texto, &data.nota);
+        printf("\n\n\t[ 0 ] - Fechar");
 
-        if (parsed != 4) {
-            printf("Error: Failed to parse CSV line\n");
-            return 1;
+        printf("\n\n••••••••••••••••••••••••••••••••••••••••••••••••••\n\n");
+
+        printf("Escolha o tema: ");
+
+        int input;
+        scanf("%i", &input);
+
+        if (input == 1 || input == 2 || input == 3 || input == 4)
+        {
+            switch (input)
+            {
+                case 1:
+                    theme_screen(1);
+                    break;
+                case 2:
+                    theme_screen(2);
+                    break;
+                case 3:
+                    theme_screen(3);
+                    break;
+                case 4:
+                    theme_screen(4);
+                    break;
+            }
+            break;
         }
-
-        printf("\n\t[ %d ] - %s", data.id, data.titulo);
-    }
-
-    printf("\n\n\t[ 0 ] - Fechar");
-
-    printf("\n\n••••••••••••••••••••••••••••••••••••••••••••••••••\n\n");
-   
+        else if (input == 0)
+        {
+            exit(1);
+        }
+        else
+        {
+            system("clear");
+            printf("Digite um número válido");
+        }
+    } while (2 > 1);
     return 0;
 }
