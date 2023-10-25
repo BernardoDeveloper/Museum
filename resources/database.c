@@ -4,15 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_LINE_LENGTH 1024
-
-struct CSVRow
-{
-    int id;
-    char titulo[100];
-    char texto[100];
-    int nota;
-};
+#define MAX_LINE_LENGTH 8192
 
 // Ponteiro para referenciar o local do arquivo
 FILE *fpt;
@@ -67,7 +59,7 @@ char *read_csv(char table[], char search[])
     }
 
     char line[MAX_LINE_LENGTH];
-    struct CSVRow data;
+    struct TemaRow data;
 
     // Pula a primeira linha
     if (fgets(line, sizeof(line), fpt) == NULL)
@@ -80,7 +72,7 @@ char *read_csv(char table[], char search[])
     // Le as linhas do arquivo
     while (fgets(line, sizeof(line), fpt) != NULL)
     {
-        if (sscanf(line, "%d;%99[^;];%99[^;];%d;", &data.id, data.titulo, data.texto, &data.nota) == 4)
+        if (sscanf(line, "%d;%99[^;];%8191[^;];%d;", &data.id, data.titulo, data.texto, &data.nota) == 4)
         {
             // Compara se o ID da linha atual é igual o do parametro
             if (data.id == atoi(search))

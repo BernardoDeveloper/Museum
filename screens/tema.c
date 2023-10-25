@@ -31,7 +31,7 @@ int tema()
                 return 1;
             }
 
-            int parsed = sscanf(theme, "%d;\"%99[^\"]\";\"%99[^\"]\";%d;", &data.id, data.titulo, data.texto, &data.nota);
+            int parsed = sscanf(theme, "%d;\"%99[^\"]\";\"%8191[^\"]\";%d;", &data.id, data.titulo, data.texto, &data.nota);
 
             if (parsed != 4) {
                 printf("Error: Failed to parse CSV line\n");

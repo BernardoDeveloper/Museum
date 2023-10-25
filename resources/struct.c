@@ -10,6 +10,6 @@ struct TemaRow
 {
     int id;
     char titulo[100];
-    char texto[100];
+    char texto[8192];
     int nota;
 };
