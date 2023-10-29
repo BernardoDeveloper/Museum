@@ -1,5 +1,10 @@
 {
     "files.associations": {
-        "tema.h": "c"
-    }
+        "tema.h": "c",
+        "stdio.h": "c",
+        "memory": "c",
+        "random": "c",
+        "optional": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
