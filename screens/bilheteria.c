@@ -11,6 +11,8 @@
  **/
 
 int bilheteria() {
+    system("clear");
+
     int quantidade_ingressos;
     int tipo_ingresso; // 1 para inteira, 2 para meio ingresso
     float preco_inteira = 10.0;

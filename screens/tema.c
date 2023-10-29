@@ -11,7 +11,6 @@
  * (c) Copyright by Museu do Presente.
  **/
 
-
 int tema()
 {
     system("clear"); // Limpa a tela
