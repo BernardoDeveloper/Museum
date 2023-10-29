@@ -1,8 +1,15 @@
-#include "../headers/pesquisa.h"
+#include "../headers/screens.h"
 #include "../headers/database.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
+/**
+ * Author:    Matheus Moreria
+ * Created:   21.10.2023
+ *
+ * (c) Copyright by Museu do Presente.
+ **/
 
 int pesquisa()
 {

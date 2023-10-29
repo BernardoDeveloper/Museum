@@ -4,6 +4,13 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * Author:    Bernardo Gualberto
+ * Created:   28.10.2023
+ *
+ * (c) Copyright by Museu do Presente.
+ **/
+
 #define MAX_LINE_LENGTH 8192
 
 // Ponteiro para referenciar o local do arquivo
@@ -22,6 +29,10 @@ char *write_csv(char table[], char text[])
     else if (!strcmp(table, "t"))
     {
         fpt = fopen("database/temas.csv", "a");
+    }
+    else if (!strcmp(table, "b"))
+    {
+        fpt = fopen("database/bilheteria.csv", "a");
     }
     else
     {

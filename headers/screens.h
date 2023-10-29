@@ -2,5 +2,7 @@
 #define FUNCTIONS_H_INCLUDED
 
 int pesquisa();
+int login();
+int tema();
 
 #endif

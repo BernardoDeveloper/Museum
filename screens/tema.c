@@ -1,8 +1,16 @@
-#include "../headers/tema.h"
+#include "../headers/screens.h"
 #include "../headers/database.h"
 #include "../resources/struct.c"
 #include <stdio.h>
 #include <stdlib.h>
+
+/**
+ * Author:    Bernardo Gualberto
+ * Created:   11.10.2023
+ *
+ * (c) Copyright by Museu do Presente.
+ **/
+
 
 int tema()
 {

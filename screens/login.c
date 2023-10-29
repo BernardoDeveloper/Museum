@@ -1,7 +1,15 @@
-#include "../headers/login.h"
+#include "../headers/screens.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+/**
+ * Author:    Matheus Corsa && Hudson
+ * Created:   23.10.2023
+ *
+ * (c) Copyright by Museu do Presente.
+ **/
+
 
 typedef struct
 {

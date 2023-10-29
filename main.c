@@ -1,8 +1,13 @@
-#include "./headers/login.h"
-#include "./headers/pesquisa.h"
-#include "./headers/tema.h"
+#include "./headers/screens.h"
 #include <stdio.h>
 #include <stdlib.h>
+
+/**
+ * Author:    Bernardo Gualberto
+ * Created:   28.09.2023
+ *
+ * (c) Copyright by Museu do Presente.
+ **/
 
 int main(void)
 {
