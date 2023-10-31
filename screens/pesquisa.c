@@ -38,7 +38,7 @@ int pesquisa()
 
         // Botão voltar
 
-        printf("\n\t[ 1 ] Voltar.\n\t");
+        printf("\n\t[ 0 ] - Voltar\n\t");
 
         int voltar;
         scanf("%i", &voltar);
