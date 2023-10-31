@@ -13,10 +13,10 @@
 
 int theme_screen(int theme_id)
 {
-    system("clear");
-
     do
     {
+        system("clear");
+        
         int digit = snprintf(NULL, 0, "%d", theme_id);
         char *digitToString = (char *)malloc(theme_id);
 
@@ -38,12 +38,14 @@ int theme_screen(int theme_id)
         input = getchar();
         scanf("%c", &input);
 
-        if (input == 'y') {
+        if (input == 'y' || input == 'Y') {
             pesquisa();
+            break;
         }
-        else if (input == 'n')
+        else if (input == 'n' || input == 'N')
         {
             main();
+            break;
         }
         else
         {

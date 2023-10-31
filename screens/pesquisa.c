@@ -38,7 +38,7 @@ int pesquisa()
 
         // Botão voltar
 
-        printf("\n\t[ Pressione: 1 ] Para voltar.\n\t");
+        printf("\n\t[ 1 ] Voltar.\n\t");
 
         int voltar;
         scanf("%i", &voltar);
@@ -73,5 +73,7 @@ int pesquisa()
 
     // TODO: Perguntar se o usuário quer fechar o programa ou voltar a tela inicial
 
+    // Volta para o começo
+    main();
     return 0;
 }
