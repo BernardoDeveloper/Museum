@@ -4,13 +4,14 @@
 #include <time.h>
 
 /**
- * Author:    Matheus Corsa
+ * Author:    Matheus && Matheus Moreira
  * Created:   27.10.2023
  *
  * (c) Copyright by Museu do Presente.
  **/
 
-int bilheteria() {
+int bilheteria()
+{
     system("clear");
 
     int quantidade_ingressos;
@@ -22,30 +23,35 @@ int bilheteria() {
     char nome_titular[100];
     char numero_cartao[16];
     int mes_validade, ano_validade;
+    int idade;
 
     printf("•••••• BILHETERIA ••••••\n");
 
-    while (1) {
+    while (1)
+    {
         // Solicitar a quantidade de ingressos
         printf("\nQuantos ingressos deseja comprar? ");
         scanf("%d", &quantidade_ingressos);
 
         // Solicitar o tipo de ingresso
-        printf("Escolha o tipo de ingresso:\n");
+        printf("Temos dois tipos de ingresso:\n");
         printf("1 - Inteira (R$%.2f)\n", preco_inteira);
         printf("2 - Meio (R$%.2f)\n", preco_meio);
-        printf("Digite o número correspondente: ");
-        scanf("%d", &tipo_ingresso);
+        printf("Digte sua idade: ");
+        scanf("%d", &idade);
 
-        if (tipo_ingresso != 1 && tipo_ingresso != 2) {
-            printf("Tipo de ingresso inválido. Por favor, insira 1 para inteira ou 2 "
-                    "para meio ingresso.\n");
+        if (idade >= 100)
+        {
+            printf("Idade inváida! Por favor verifique.\n");
             continue; // Reinicia o loop para que o usuário insira dados corretos
         }
 
-        if (tipo_ingresso == 1) {
+        if (idade >= 12 && idade <= 60)
+        {
             total_venda = quantidade_ingressos * preco_inteira;
-        } else {
+        }
+        else
+        {
             total_venda = quantidade_ingressos * preco_meio;
         }
 
@@ -62,7 +68,8 @@ int bilheteria() {
         printf("Digite a opção desejada: ");
         scanf("%d", &opcao_pagamento);
 
-        if (opcao_pagamento == 1) {
+        if (opcao_pagamento == 1)
+        {
             printf("Digite o nome do titular do cartão: ");
             scanf("%s", nome_titular);
             printf("Digite o número do cartão de crédito (16 dígitos): ");
@@ -74,7 +81,9 @@ int bilheteria() {
 
             printf("\nProcessando o pagamento com cartão de crédito...\n");
             // Lógica de processamento do pagamento com cartão de crédito
-        } else if (opcao_pagamento == 2) {
+        }
+        else if (opcao_pagamento == 2)
+        {
             printf("Digite o nome do titular do cartão: ");
             scanf("%s", nome_titular);
             printf("Digite o número do cartão de débito (16 dígitos): ");
@@ -82,9 +91,11 @@ int bilheteria() {
 
             printf("\nProcessando o pagamento com cartão de débito...\n");
             // Lógica de processamento do pagamento com cartão de débito
-        } else {
+        }
+        else
+        {
             printf("Opção de pagamento inválida. Por favor, insira 1 para cartão de "
-                    "crédito ou 2 para cartão de débito.\n");
+                   "crédito ou 2 para cartão de débito.\n");
             continue; // Reinicia o loop para que o usuário insira dados corretos
         }
 
@@ -92,7 +103,7 @@ int bilheteria() {
         srand(time(NULL));
         int codigo_ingresso = rand() % 10000; // Código aleatório de 4 dígitos
         printf("Pagamento aprovado. Seu código de ingresso é: %d\n",
-                codigo_ingresso);
+               codigo_ingresso);
 
         break; // Sai do loop quando a compra é concluída
     }

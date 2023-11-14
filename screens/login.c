@@ -14,7 +14,6 @@
  * (c) Copyright by Museu do Presente.
  **/
 
-
 typedef struct
 {
     char login[40];
@@ -52,7 +51,7 @@ int login()
         do
         {
             printf("\n\n••••••••••••• Administrador •••••••••••••\n\n");
-            
+
             char download_path[255];
 
             printf("\tDigite o local para fazer download do arquivo: ");
@@ -60,8 +59,8 @@ int login()
             scanf("%s", &download_path);
 
             // Verifica se o caminho existe
-            DIR* dir = opendir(download_path);
-            
+            DIR *dir = opendir(download_path);
+
             struct stat info;
             if (stat(download_path, &info) != 0)
             {
@@ -72,7 +71,7 @@ int login()
             {
                 char command[255];
                 snprintf(command, sizeof(command), "cp ./database/* %s", download_path);
-                
+
                 system(command);
 
                 printf("\n\tArquivos copiados para sua pasta com SUCESSO ;)\n");

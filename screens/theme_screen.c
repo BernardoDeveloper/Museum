@@ -16,14 +16,14 @@ int theme_screen(int theme_id)
     do
     {
         system("clear");
-        
+
         int digit = snprintf(NULL, 0, "%d", theme_id);
         char *digitToString = (char *)malloc(theme_id);
 
         snprintf(digitToString, digit + 1, "%d", theme_id);
 
         struct TemaRow data;
-        char* theme = read_csv("t", digitToString);
+        char *theme = read_csv("t", digitToString);
         int parsed = sscanf(theme, "%d;\"%99[^\"]\";\"%8191[^\"]\";%d;", &data.id, data.titulo, data.texto, &data.nota);
 
         printf("\n\n••••••••••••• %s •••••••••••••\n\n", data.titulo);
@@ -33,12 +33,13 @@ int theme_screen(int theme_id)
         printf("\n\n••••••••••••••••••••••••••••••••••••••••••••••••••\n\n");
 
         printf("Deseja realizar a pesquisa de satisfação relacionada ao tema? (y/n) ");
-    
+
         char input;
         input = getchar();
         scanf("%c", &input);
 
-        if (input == 'y' || input == 'Y') {
+        if (input == 'y' || input == 'Y')
+        {
             pesquisa();
             break;
         }

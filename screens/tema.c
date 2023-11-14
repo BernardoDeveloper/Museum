@@ -20,32 +20,37 @@ int tema()
         printf("\n\n••••••••••••• Tema •••••••••••••\n\n");
 
         printf("\tTEMA:\n");
-        
+
         // Reapeat four times show the themes with base in file
         struct TemaRow data;
         int index;
-        for (index = 1; index <= 4; index++) {
+        for (index = 1; index <= 4; index++)
+        {
             // Transform int index to char value
             int digit = snprintf(NULL, 0, "%d", index);
             char *digitToString = (char *)malloc(index);
 
             snprintf(digitToString, digit + 1, "%d", index);
 
-            char* theme = read_csv("t", digitToString); // If use daynamic value them return an ERROR
+            char *theme = read_csv("t", digitToString); // If use daynamic value them return an ERROR
 
-            if (theme == NULL) {
+            if (theme == NULL)
+            {
                 printf("Error: Line not found in CSV file\n");
                 return 1;
             }
 
             int parsed = sscanf(theme, "%d;\"%99[^\"]\";\"%8191[^\"]\";%d;", &data.id, data.titulo, data.texto, &data.nota);
 
-            if (parsed != 4) {
+            if (parsed != 4)
+            {
                 printf("Error: Failed to parse CSV line\n");
                 return 1;
             }
 
-            printf("\n\t[ %d ] - %s", data.id, data.titulo);
+            // Create an array and
+            for (int notaBase = 0; data.nota < notaBase; notaBase = data.nota)
+                printf("\n\t[ %d ] - %s - %d", data.id, data.titulo, data.nota);
         }
 
         printf("\n\n\t[ 0 ] - Fechar");
@@ -61,18 +66,18 @@ int tema()
         {
             switch (input)
             {
-                case 1:
-                    theme_screen(1);
-                    break;
-                case 2:
-                    theme_screen(2);
-                    break;
-                case 3:
-                    theme_screen(3);
-                    break;
-                case 4:
-                    theme_screen(4);
-                    break;
+            case 1:
+                theme_screen(1);
+                break;
+            case 2:
+                theme_screen(2);
+                break;
+            case 3:
+                theme_screen(3);
+                break;
+            case 4:
+                theme_screen(4);
+                break;
             }
             break;
         }
