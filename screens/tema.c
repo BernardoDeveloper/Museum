@@ -23,8 +23,9 @@ int tema()
 
         // Reapeat four times show the themes with base in file
         struct TemaRow data;
-        int index;
-        for (index = 1; index <= 4; index++)
+        struct TemaRow arraySorted[4];
+
+        for (int index = 1; index <= 4; index++)
         {
             // Transform int index to char value
             int digit = snprintf(NULL, 0, "%d", index);
@@ -48,9 +49,7 @@ int tema()
                 return 1;
             }
 
-            // Create an array and
-            for (int notaBase = 0; data.nota < notaBase; notaBase = data.nota)
-                printf("\n\t[ %d ] - %s - %d", data.id, data.titulo, data.nota);
+            printf("\n\t[ %d ] - %s - %d", data.id, data.titulo, data.nota);
         }
 
         printf("\n\n\t[ 0 ] - Fechar");

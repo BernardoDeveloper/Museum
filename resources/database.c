@@ -100,5 +100,5 @@ char *read_csv(char table[], char search[])
     }
 
     fclose(fpt);
-   return "0";
+    return "0";
 }

@@ -1,31 +1,31 @@
-id;nome;tema;pontuacao;
-17;bernardo;3;2;
-10;Matheus;2;10;
-2;Matheus celta;3;2;
-62;bernardo;3;8;
-2;Matheus celta;3;2;
-2;Matheus celta;3;2;
-4;Carol;2;8;
-38;bernardo;2;8;
-83;bernardo;3;8;
-90;teste;4;4;
-13;bernardo;2;3;
-8;bernardo;2;3;
-69;will;4;8;
-51;cuceta;1;3;
-8;testeEE;4;0;
-66;qwe;3;2;
-77;fgdh;2;4;
-86;qwe;2;3;
-77;a;1;2;
-83;victor;4;8;
-15;test;2;2;
-59;ui;3;10;
-24;gustavo;4;10;
-52;wer;4;10;
-82;marcelo;3;8;
-53;trewq;3;9;
-27;mochila;3;9;
-46;bernardo;2;9;
-3;Matheus;2;1;
-40;Matheus;1;10;
+id;nome;tema;pontuacao
+17;bernardo;3;2
+10;Matheus;2;10
+2;Matheus celta;3;2
+62;bernardo;3;8
+2;Matheus celta;3;2
+2;Matheus celta;3;2
+4;Carol;2;8
+38;bernardo;2;8
+83;bernardo;3;8
+90;teste;4;4
+13;bernardo;2;3
+8;bernardo;2;3
+69;will;4;8
+51;cuceta;1;3
+8;testeEE;4;0
+66;qwe;3;2
+77;fgdh;2;4
+86;qwe;2;3
+77;a;1;2
+83;victor;4;8
+15;test;2;2
+59;ui;3;10
+24;gustavo;4;10
+52;wer;4;10
+82;marcelo;3;8
+53;trewq;3;9
+27;mochila;3;9
+46;bernardo;2;9
+3;Matheus;2;1
+40;Matheus;1;10

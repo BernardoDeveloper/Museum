@@ -1,7 +1,10 @@
 #include "../headers/screens.h"
+#include "../headers/database.h"
+#include "../headers/errormsg.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
 /**
  * Author:    Matheus && Matheus Moreira
@@ -14,96 +17,122 @@ int bilheteria()
 {
     system("clear");
 
-    int quantidade_ingressos;
-    int tipo_ingresso; // 1 para inteira, 2 para meio ingresso
-    float preco_inteira = 10.0;
-    float preco_meio = 5.0;
-    float total_venda;
-    int opcao_pagamento;
-    char nome_titular[100];
-    char numero_cartao[16];
-    int mes_validade, ano_validade;
-    int idade;
+    char nome_titular[255];
+    char numero_cartao[1024];
+    int tipoDeIngresso, idade, opcao_pagamento, mes_validade, ano_validade;
+    const float precoBase = 20.99;
+    float preco = 20.99;
 
     printf("•••••• BILHETERIA ••••••\n");
 
     while (1)
     {
-        // Solicitar a quantidade de ingressos
-        printf("\nQuantos ingressos deseja comprar? ");
-        scanf("%d", &quantidade_ingressos);
+        printf("\n\tIngressos:\n");
 
-        // Solicitar o tipo de ingresso
-        printf("Temos dois tipos de ingresso:\n");
-        printf("1 - Inteira (R$%.2f)\n", preco_inteira);
-        printf("2 - Meio (R$%.2f)\n", preco_meio);
-        printf("Digte sua idade: ");
-        scanf("%d", &idade);
+        printf("\n\t[ 1 ] - Inteira (R$%.2f)", preco);
+        printf("\n\t[ 2 ] - Meia (R$%.2f)", preco / 2);
 
-        if (idade >= 100)
+        printf("\n\n\t[ 0 ] - Voltar");
+
+        printf("\n\n••••••••••••••••••••••••••••••••••••••••••••••••••\n\n");
+
+        printf("\t\nQual o tipo de ingresso: ");
+        scanf("%d", &tipoDeIngresso);
+
+        if (tipoDeIngresso == 0)
+            main();
+
+        if (tipoDeIngresso == 2)
         {
-            printf("Idade inváida! Por favor verifique.\n");
-            continue; // Reinicia o loop para que o usuário insira dados corretos
-        }
+            printf("\t\nDigite a sua idade: ");
+            scanf("%d", &idade);
 
-        if (idade >= 12 && idade <= 60)
-        {
-            total_venda = quantidade_ingressos * preco_inteira;
+            if (idade < 0 || idade <= 12 || idade >= 60)
+            {
+                preco = precoBase / 2;
+                printf("\t\nO valor do seu ingresso, ficou: R$%.2f", preco);
+            }
+            else
+            {
+                system("clear");
+                error_msg("Você não tem direito a meia entrada");
+                continue;
+            }
         }
-        else
-        {
-            total_venda = quantidade_ingressos * preco_meio;
-        }
-
-        // Imprimir o recibo
-        printf("\nRecibo de Compra:\n");
-        printf("Quantidade de ingressos: %d\n", quantidade_ingressos);
-        printf("Tipo de ingresso: %s\n", (tipo_ingresso == 1) ? "Inteira" : "Meio");
-        printf("Total a pagar: R$%.2f\n", total_venda);
 
         // Solicitar a forma de pagamento
-        printf("\nEscolha a forma de pagamento:\n");
-        printf("1 - Cartão de Crédito\n");
-        printf("2 - Cartão de Débito\n");
-        printf("Digite a opção desejada: ");
+        printf("\t\nForma de pagamento:\n");
+        printf("\t\n [ 1 ] - Cartão de Crédito");
+        printf("\t\n [ 2 ] - Cartão de Débito");
+        printf("\t\n\nDigite a opção desejada: ");
         scanf("%d", &opcao_pagamento);
+
+        printf("\t\nTitular do cartão: ");
+        scanf("%s", nome_titular);
+
+        printf("\t\nNúmero do cartão (16 dígitos): ");
+        scanf("%s", numero_cartao);
+
+        if (strlen(numero_cartao) != 16)
+        {
+            system("clear");
+            preco = precoBase; // reinicia o preço
+            error_msg("Cartão inválido :/");
+            continue;
+        }
 
         if (opcao_pagamento == 1)
         {
-            printf("Digite o nome do titular do cartão: ");
-            scanf("%s", nome_titular);
-            printf("Digite o número do cartão de crédito (16 dígitos): ");
-            scanf("%s", numero_cartao);
-            printf("Digite o mês de validade do cartão: ");
+            printf("Mês de validade do cartão: ");
             scanf("%d", &mes_validade);
-            printf("Digite o ano de validade do cartão: ");
+
+            if (mes_validade > 12)
+            {
+                system("clear");
+                error_msg("Mês inválido :/");
+                continue;
+            }
+
+            printf("Ano de validade do cartão: ");
             scanf("%d", &ano_validade);
 
-            printf("\nProcessando o pagamento com cartão de crédito...\n");
-            // Lógica de processamento do pagamento com cartão de crédito
-        }
-        else if (opcao_pagamento == 2)
-        {
-            printf("Digite o nome do titular do cartão: ");
-            scanf("%s", nome_titular);
-            printf("Digite o número do cartão de débito (16 dígitos): ");
-            scanf("%s", numero_cartao);
-
-            printf("\nProcessando o pagamento com cartão de débito...\n");
-            // Lógica de processamento do pagamento com cartão de débito
-        }
-        else
-        {
-            printf("Opção de pagamento inválida. Por favor, insira 1 para cartão de "
-                   "crédito ou 2 para cartão de débito.\n");
-            continue; // Reinicia o loop para que o usuário insira dados corretos
+            if (ano_validade < 23)
+            {
+                system("clear");
+                error_msg("Cartão vencido :/");
+                continue;
+            }
         }
 
         // Gere um código de ingresso aleatório
         srand(time(NULL));
         int codigo_ingresso = rand() % 10000; // Código aleatório de 4 dígitos
-        printf("Pagamento aprovado. Seu código de ingresso é: %d\n",
-               codigo_ingresso);
+
+        printf("\x1b[32m");
+        printf("\n\n---------------------------------------\n");
+        printf("\tINGRESSO:\n");
+        printf("\n");
+        printf("\tTitular: %s\n", nome_titular);
+        printf("\tPreço: R$%.2f\n", preco);
+        printf("\tCódigo do ingresso: %d\n", codigo_ingresso);
+        printf("---------------------------------------\n");
+        printf("\33[0m");
+
+        char data[1024];
+        snprintf(data, sizeof(data), "%d;%s;", codigo_ingresso, nome_titular);
+
+        write_csv("b", data);
+
+        printf("\n\t[ 0 ] - Voltar\n\t");
+
+        printf("Digite: ");
+        int voltar;
+        scanf("%i", &voltar);
+        if (voltar == 0)
+        {
+            main();
+            break;
+        }
 
         break; // Sai do loop quando a compra é concluída
     }
