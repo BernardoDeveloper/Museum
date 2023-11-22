@@ -5,5 +5,6 @@ int pesquisa();
 int bilheteria();
 int login();
 int tema();
+int sistema();
 
 #endif

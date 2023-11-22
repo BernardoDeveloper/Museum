@@ -63,7 +63,7 @@ int pesquisa()
 
     // Inicializando um tempo para gerar os ID's aleatórios.
     srand(time(NULL));
-    int id = rand() % 101;
+    int id = rand() % 1000;
 
     char dados[1024];
     snprintf(dados, sizeof(dados), "%i;%s;%i;%i;", id, nome, tema, pontuacao);

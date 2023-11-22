@@ -3,8 +3,12 @@
 #include "../resources/struct.c"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-/**
+#define MAX_LINE_LENGTH 1024
+#define MAX_CSV_ELEMENTS 1000000
+
+/*
  * Author:    Bernardo Gualberto
  * Created:   11.10.2023
  *
@@ -23,8 +27,6 @@ int tema()
 
         // Reapeat four times show the themes with base in file
         struct TemaRow data;
-        struct TemaRow arraySorted[4];
-
         for (int index = 1; index <= 4; index++)
         {
             // Transform int index to char value

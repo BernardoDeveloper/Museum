@@ -119,7 +119,7 @@ int bilheteria()
         printf("\33[0m");
 
         char data[1024];
-        snprintf(data, sizeof(data), "%d;%s;", codigo_ingresso, nome_titular);
+        snprintf(data, sizeof(data), "%d;", codigo_ingresso);
 
         write_csv("b", data);
 

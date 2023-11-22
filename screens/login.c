@@ -8,7 +8,7 @@
 #include <sys/stat.h>
 
 /**
- * Author:    Matheus Corsa && Hudson
+ * Author:    Matheus && Hudson && Bernardo
  * Created:   23.10.2023
  *
  * (c) Copyright by Museu do Presente.

@@ -12,16 +12,15 @@
 int main(void)
 {
     system("clear");
-    
+
     do
     {
         printf("\n\n••••••••••••• Gerenciamento de Museu •••••••••••••\n\n");
 
         printf("\tTELAS:\n");
-        printf("\n\t[ 1 ] - Temas");
-        printf("\n\t[ 2 ] - Pesquisa");
-        printf("\n\t[ 3 ] - Bilheteria");
-        printf("\n\t[ 4 ] - Login");
+        printf("\n\t[ 1 ] - Sistema");
+        printf("\n\t[ 2 ] - Bilheteria");
+        printf("\n\t[ 3 ] - Login");
 
         printf("\n\n\t[ 0 ] - Fechar");
 
@@ -32,20 +31,17 @@ int main(void)
         int entrada;
         scanf("%i", &entrada);
 
-        if (entrada == 1 || entrada == 2 || entrada == 3 || entrada == 4)
+        if (entrada == 1 || entrada == 2 || entrada == 3)
         {
             switch (entrada)
             {
             case 1:
-                tema();
+                sistema();
                 break;
             case 2:
-                pesquisa();
-                break;
-            case 3:
                 bilheteria();
                 break;
-            case 4:
+            case 3:
                 login();
                 break;
             }
