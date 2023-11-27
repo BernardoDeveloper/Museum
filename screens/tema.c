@@ -51,7 +51,7 @@ int tema()
                 return 1;
             }
 
-            printf("\n\t[ %d ] - %s - %d", data.id, data.titulo, data.nota);
+            printf("\n\t[ %d ] - %s", data.id, data.titulo);
         }
 
         printf("\n\n\t[ 0 ] - Fechar");

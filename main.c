@@ -18,9 +18,10 @@ int main(void)
         printf("\n\n••••••••••••• Gerenciamento de Museu •••••••••••••\n\n");
 
         printf("\tTELAS:\n");
-        printf("\n\t[ 1 ] - Sistema");
-        printf("\n\t[ 2 ] - Bilheteria");
-        printf("\n\t[ 3 ] - Login");
+        printf("\n\t[ 1 ] - Tema");
+        printf("\n\t[ 2 ] - Pesquisa");
+        printf("\n\t[ 3 ] - Bilheteria");
+        printf("\n\t[ 4 ] - Login");
 
         printf("\n\n\t[ 0 ] - Fechar");
 
@@ -36,12 +37,15 @@ int main(void)
             switch (entrada)
             {
             case 1:
-                sistema();
+                tema();
                 break;
             case 2:
-                bilheteria();
+                pesquisa();
                 break;
             case 3:
+                bilheteria();
+                break;
+            case 4:
                 login();
                 break;
             }
